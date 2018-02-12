@@ -13,7 +13,6 @@ import Himotoki
 
 public final class CoinModel: CoinModeling {
 
-  
   private let network: Networking
   
   public init(network: Networking) {
@@ -35,7 +34,9 @@ public final class CoinModel: CoinModeling {
               }
             }
           }
+          if coins != nil {
           observer.send(value: (defaultCoinsInt: self.getDefaultCoinsWatchlist(json as! [String:AnyObject], coins: coins!), all: coins))
+          }
         default: break
         }
       })
@@ -73,11 +74,40 @@ public final class CoinModel: CoinModeling {
             }
             coinLocal.details = coinsDetail
           }
-          observer.send(value: coinLocal)
-          observer.sendCompleted()
+          self.getCurrency(coinLocal, completionHandler: { (coin) in
+            coinLocal.currency = coin.currency
+            observer.send(value: coinLocal)
+            observer.sendCompleted()
+          })
         default: break
         }
       })
     }
+  }
+  
+  public func getCoinCurrency(_ coin: Coin) -> SignalProducer<Coin, NetworkError> {
+    return SignalProducer { observer , disposable in
+      self.getCurrency(coin, completionHandler: { (resultCoin) in
+        observer.send(value: resultCoin)
+        observer.sendCompleted()
+      })
+    }
+  }
+  
+  private func getCurrency(_ coin: Coin, completionHandler: @escaping (_ completion: Coin) -> Void)  {
+    let asddsa = "https://min-api.cryptocompare.com/data/price"
+    let parameters = ["fsym" : coin.symbol as AnyObject, // TODO: Dynamic to any Currency
+      "tsyms" : "EUR" as AnyObject] // TODO: Dynamic to any Currency
+      self.network.get(asddsa, parameters: parameters).start({ result in
+        switch result {
+        case .value(let json):
+          var coinLocal = coin
+          if let currency = (json as? [String:AnyObject])?["EUR"] {
+            coinLocal.currency = currency.floatValue
+          }
+          completionHandler(coinLocal)
+        default: break
+        }
+      })
   }
 }

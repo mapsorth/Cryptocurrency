@@ -73,8 +73,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rI-6g-ACD">
+                                <rect key="frame" x="-0.5" y="64" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okW-fW-q9i">
+                                        <rect key="frame" x="8" y="28" width="149.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9999,99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6U-wf-HrP">
+                                        <rect key="frame" x="210.5" y="21" width="156.5" height="39.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="33"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="okW-fW-q9i" firstAttribute="leading" secondItem="6rI-6g-ACD" secondAttribute="leading" constant="8" id="JfW-RF-Qw8"/>
+                                    <constraint firstItem="S6U-wf-HrP" firstAttribute="centerY" secondItem="6rI-6g-ACD" secondAttribute="centerY" id="a5O-ta-bwC"/>
+                                    <constraint firstAttribute="trailing" secondItem="S6U-wf-HrP" secondAttribute="trailing" constant="8" id="nyA-Eb-Xdr"/>
+                                    <constraint firstItem="okW-fW-q9i" firstAttribute="centerY" secondItem="6rI-6g-ACD" secondAttribute="centerY" id="pbw-jD-Kj8"/>
+                                    <constraint firstAttribute="height" constant="80" id="qsv-GU-KWk"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B2Q-bR-3Fr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="523"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="coinDetailCell" id="OpX-6F-77c" customClass="CoinDetailsTableViewCell" customModule="VView">
@@ -90,14 +115,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6rI-6g-ACD" firstAttribute="width" secondItem="Vb6-fc-XBP" secondAttribute="width" id="7ME-jJ-DMv"/>
                             <constraint firstItem="21w-vo-97A" firstAttribute="bottom" secondItem="B2Q-bR-3Fr" secondAttribute="bottom" id="98x-tw-TrD"/>
                             <constraint firstItem="21w-vo-97A" firstAttribute="trailing" secondItem="B2Q-bR-3Fr" secondAttribute="trailing" id="F1j-zQ-Nzs"/>
-                            <constraint firstItem="B2Q-bR-3Fr" firstAttribute="top" secondItem="21w-vo-97A" secondAttribute="top" id="tK3-Tu-RqN"/>
+                            <constraint firstItem="6rI-6g-ACD" firstAttribute="centerX" secondItem="21w-vo-97A" secondAttribute="centerX" id="dI9-y0-nD9"/>
                             <constraint firstItem="B2Q-bR-3Fr" firstAttribute="leading" secondItem="21w-vo-97A" secondAttribute="leading" id="uCU-KX-FRm"/>
+                            <constraint firstItem="6rI-6g-ACD" firstAttribute="top" secondItem="21w-vo-97A" secondAttribute="top" id="ua1-Nk-Opi"/>
+                            <constraint firstItem="B2Q-bR-3Fr" firstAttribute="top" secondItem="6rI-6g-ACD" secondAttribute="bottom" id="vbv-RD-YG3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="21w-vo-97A"/>
                     </view>
                     <connections>
+                        <outlet property="currencyLabel" destination="S6U-wf-HrP" id="YdZ-Nh-9yv"/>
                         <outlet property="tableView" destination="B2Q-bR-3Fr" id="ER9-KL-cnr"/>
                     </connections>
                 </viewController>

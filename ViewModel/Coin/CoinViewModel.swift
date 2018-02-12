@@ -41,7 +41,11 @@ public final class CoinViewModel: CoinViewModeling {
   }
   
   public func getCoins(_ searchString: String?) {
-    searchString?.isEmpty ?? true ? { _searchResult.value?.removeAll() } () : search(searchString!)
+    let emptySearch = {
+      _searchResult.value?.removeAll()
+      setCellModels(coins: _coins.value.all!)
+    }()
+    searchString?.isEmpty ?? true ? emptySearch : search(searchString!)
   }
   
   public func navigateToCoinDetail(_ index: Int) {
@@ -66,35 +70,7 @@ public final class CoinViewModel: CoinViewModeling {
   
   private func getBitcoinDetailForiWatch(){
     let bitcoin = (_coins.value.all?.filter { $0.coinFullName.lowercased().contains("BTC".lowercased()) })?[1]
-    coinModeling.getCoinDetails(bitcoin!).start({ event in
-      switch event {
-      case .value(let coinDetails):
-        self._bitcoin.value = self.formatCoinToDict(coinDetails)
-      default:
-        print("loko")
-      }
-    })
-  }
-  
-  private func formatCoinToDict(_ coin: Coin) -> [String:AnyObject]{
-    let coin = ["name"      : coin.coinName as AnyObject,
-                "currency"  : "$ 9999,99" as AnyObject,
-                "details"   : formatDetailDict(coin.details!) as AnyObject]
-    
-    let parameter = ["coinDetails": coin as AnyObject]
-    return parameter
-  }
-  
-  private func formatDetailDict(_ coinDetail: [CoinDetail]) -> [[String:String]]{
-    var detaildict = [[String:String]]()
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd/MM"
-    for detail in coinDetail{
-      let fullDate = Date(timeIntervalSince1970: TimeInterval(detail.time))
-      let dictLocal = ["time": dateFormatter.string(from: fullDate), "close": "€ \(detail.close)"]
-      detaildict.append(dictLocal)
-    }
-    return detaildict
+    WatchCommunicationHelper.singleton.initCommunication(bitcoin!, coinModeling: coinModeling)
   }
   
   private func setCellModels(coins: [Coin]){

@@ -17,7 +17,7 @@
                         <group width="1" alignment="left" layout="vertical" id="KPy-pG-JVW">
                             <items>
                                 <label alignment="center" text="Bitcoin" textAlignment="center" id="132-Bb-I2L"/>
-                                <label alignment="center" text="$ 9999,99" textAlignment="center" id="fTK-CW-qlt">
+                                <label alignment="center" hidden="YES" text="$ 9999,99" textAlignment="center" id="fTK-CW-qlt">
                                     <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                 </label>
                             </items>

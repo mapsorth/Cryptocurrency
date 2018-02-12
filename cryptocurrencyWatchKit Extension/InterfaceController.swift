@@ -47,7 +47,8 @@ class InterfaceController: WKInterfaceController {
     }
   private func setHeader(){
     coinNameLabel.setText(coinDetails?.coinName)
-    coinCurrentCurrencyLabel.setText(coinDetails?.currentCurrency)
+    coinCurrentCurrencyLabel.setHidden(false)
+    coinCurrentCurrencyLabel.setText("€ \(coinDetails!.currentCurrency!)")
   }
   
   private func loadTable(){

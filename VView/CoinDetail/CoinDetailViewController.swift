@@ -13,7 +13,10 @@ import ReactiveSwift
 
 public class CoinDetailViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var currencyLabel: UILabel!
+  
   public var viewModel: CoinDetailViewModeling?
+  
   public override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -24,12 +27,18 @@ public class CoinDetailViewController: UIViewController {
     self.navigationItem.title = viewModel?.coin.value?.coinName
     bindingData()
   }
+
   
   private func bindingData() {
     if let viewModel = viewModel {
-      viewModel.cellModels.producer.start({ asddas in
+      viewModel.cellModels.producer.start({ _ in
         DispatchQueue.main.async {
           self.tableView.reloadData()
+        }
+      })
+      viewModel.coin.producer.start({ coin in
+        DispatchQueue.main.async {
+          self.currencyLabel.text = "€ \(coin.value??.currency ?? 0)"
         }
       })
     }

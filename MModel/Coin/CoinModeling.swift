@@ -14,4 +14,6 @@ public protocol CoinModeling {
   func getList() -> SignalProducer<(defaultCoinsInt: Int? ,all:[Coin]?), NetworkError>
   
   func getCoinDetails(_ coin: Coin) -> SignalProducer <Coin, NetworkError>
+  
+  func getCoinCurrency(_ coin: Coin) -> SignalProducer <Coin, NetworkError>
 }
