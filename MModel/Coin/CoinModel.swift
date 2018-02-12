@@ -20,10 +20,10 @@ public final class CoinModel: CoinModeling {
   }
   
   public func getList() -> SignalProducer<(defaultCoinsInt: Int? ,all:[Coin]?), NetworkError> {
-    let rootURL = "https://min-api.cryptocompare.com/data/all/coinlist"
+    let url = rootURL + "data/all/coinlist"
 
     return SignalProducer { observer, disposable in
-      self.network.get(rootURL, parameters: nil).start({ event in
+      self.network.get(url, parameters: nil).start({ event in
         switch event {
         case .value(let json):
           var coins:[Coin]?
@@ -55,13 +55,13 @@ public final class CoinModel: CoinModeling {
   
   public func getCoinDetails(_ coin: Coin) -> SignalProducer <Coin, NetworkError> {
     
-    let asddsa = "https://min-api.cryptocompare.com/data/histoday"
+    let url = rootURL + "data/histoday"
     let parameters = ["fsym" : coin.symbol as AnyObject, // TODO: Dynamic to any Currency
                "tsym" : "EUR" as AnyObject, // TODO: Dynamic to any Currency
                "limit" : 14 as AnyObject] // TODO: Dynamic to any limit
     
     return SignalProducer { observer, disposable in
-      self.network.get(asddsa, parameters: parameters).start({ result in
+      self.network.get(url, parameters: parameters).start({ result in
         switch result {
         case .value(let json):
           var coinLocal = coin
@@ -95,10 +95,10 @@ public final class CoinModel: CoinModeling {
   }
   
   private func getCurrency(_ coin: Coin, completionHandler: @escaping (_ completion: Coin) -> Void)  {
-    let asddsa = "https://min-api.cryptocompare.com/data/price"
+    let url = rootURL + "data/price"
     let parameters = ["fsym" : coin.symbol as AnyObject, // TODO: Dynamic to any Currency
       "tsyms" : "EUR" as AnyObject] // TODO: Dynamic to any Currency
-      self.network.get(asddsa, parameters: parameters).start({ result in
+      self.network.get(url, parameters: parameters).start({ result in
         switch result {
         case .value(let json):
           var coinLocal = coin

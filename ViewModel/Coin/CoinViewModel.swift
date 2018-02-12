@@ -35,9 +35,10 @@ public final class CoinViewModel: CoinViewModeling {
   private let coinModeling: CoinModeling
   public var coinDetailModifiable: CoinDetailModifiable?
   
+  
   public init(coinModeling: CoinModeling){
     self.coinModeling = coinModeling
-    getAllCoins()
+    self.getAllCoins()
   }
   
   public func getCoins(_ searchString: String?) {
@@ -55,14 +56,15 @@ public final class CoinViewModel: CoinViewModeling {
   
   private func getAllCoins(){
     if self._coins.value.defaultCoinsInt == nil {
-      coinModeling.getList().start({ event in
+      coinModeling.getList()
+        .start({ event in
       switch event {
       case .value(let listCoins):
         self._coins.value = listCoins
         self.setCellModels(coins: listCoins.all!)
         self.getBitcoinDetailForiWatch()
       default:
-        print("loko")
+        print("default")
       }
       })
     }
@@ -73,7 +75,7 @@ public final class CoinViewModel: CoinViewModeling {
     WatchCommunicationHelper.singleton.initCommunication(bitcoin!, coinModeling: coinModeling)
   }
   
-  private func setCellModels(coins: [Coin]){
+  private func setCellModels(coins: [Coin]) {
     _cellModels.value = coins.map { CoinTableViewCellModel(coin: $0) }
   }
   

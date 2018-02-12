@@ -8,9 +8,11 @@
 
 import ReactiveCocoa
 import ReactiveSwift
+import Result
 
 public protocol CoinTableViewCellModeling {
 
   var name: String { get }
   var symbol: String { get }
-  }
+  
+}

@@ -20,8 +20,6 @@ public class MyViewController: UIViewController {
   public var viewModel: CoinViewModeling?
   private var coins: (defaultCoinsInt: Int? ,all:[Coin]?)?
   private var searchResult: [Coin]?
-  private var watchSession : WCSession?
-
   
   override public func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +29,6 @@ public class MyViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     searchTextField.addTarget(self, action: #selector(MyViewController.textFieldChanged(_:)), for: .editingChanged)
-
-    if(WCSession.isSupported()){
-      watchSession = WCSession.default
-      watchSession!.delegate = self
-      watchSession!.activate()
-    }
     
     bindingData()
   }
@@ -54,25 +46,9 @@ public class MyViewController: UIViewController {
         }
         }
       })
-      viewModel.bitcoin.producer.start({ bitcoin in
-        if !(bitcoin.value?.isEmpty ?? true){
-          DispatchQueue.main.async {
-            self.sendToWatch(bitcoin.value!)
-          }
-        }
-      })
     }
   }
   
-  fileprivate func sendToWatch(_ dict: [String:AnyObject]){
-    do {
-      try watchSession?.updateApplicationContext(
-        dict
-      )
-    } catch let error as NSError {
-      NSLog("Updating the context failed: " + error.localizedDescription)
-    }
-  }
   
   @objc fileprivate func textFieldChanged(_ textField: UITextField) {
     if let viewModel = self.viewModel {
@@ -110,20 +86,5 @@ extension MyViewController: UITableViewDataSource {
       cell.viewModel = viewModel.cellModels.value[indexPath.row + indexPath.section*(viewModel.coins.value.defaultCoinsInt ?? 0)]
     }
     return cell
-  }
-}
-
-extension MyViewController: WCSessionDelegate {
-  @available(iOS 9.3, *)
-  public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-    
-  }
-  
-  public func sessionDidBecomeInactive(_ session: WCSession) {
-    
-  }
-  
-  public func sessionDidDeactivate(_ session: WCSession) {
-    
   }
 }

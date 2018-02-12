@@ -27,6 +27,10 @@ public class CoinDetailViewController: UIViewController {
     self.navigationItem.title = viewModel?.coin.value?.coinName
     bindingData()
   }
+  
+  public override func viewWillDisappear(_ animated: Bool) {
+    viewModel?.backAction()
+  }
 
   
   private func bindingData() {

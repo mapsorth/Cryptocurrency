@@ -8,15 +8,18 @@
 
 import ReactiveCocoa
 import ReactiveSwift
+import Result
 import MModel
+import Foundation
 
 public final class CoinTableViewCellModel: CoinTableViewCellModeling {
   
   public let name: String
   public let symbol: String
-  
+
   internal init(coin: Coin){
     name = coin.coinName
     symbol = coin.symbol
   }
 }
+

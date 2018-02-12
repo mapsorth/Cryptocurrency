@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6U-Eh-KEo">
-                        <rect key="frame" x="8" y="2" width="304" height="75.5"/>
+                        <rect key="frame" x="8" y="4" width="304" height="75.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBS-vD-65d">
                                 <rect key="frame" x="8" y="9" width="58" height="58"/>
@@ -73,8 +73,8 @@
                 </subviews>
                 <color key="backgroundColor" red="0.1647058824" green="0.59999999999999998" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="o6U-Eh-KEo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="9ak-MM-cfT"/>
-                    <constraint firstAttribute="bottom" secondItem="o6U-Eh-KEo" secondAttribute="bottom" constant="2" id="Fwf-0e-pf7"/>
+                    <constraint firstItem="o6U-Eh-KEo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="9ak-MM-cfT"/>
+                    <constraint firstAttribute="bottom" secondItem="o6U-Eh-KEo" secondAttribute="bottom" id="Fwf-0e-pf7"/>
                     <constraint firstAttribute="trailing" secondItem="o6U-Eh-KEo" secondAttribute="trailing" constant="8" id="Pop-dA-YW4"/>
                     <constraint firstItem="o6U-Eh-KEo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="jC3-G2-Lmd"/>
                 </constraints>

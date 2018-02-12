@@ -9,6 +9,8 @@
 import UIKit
 import ViewModel
 import ReactiveSwift
+import ReactiveCocoa
+import Result
 
 internal final class CoinTableViewCell: UITableViewCell {
   

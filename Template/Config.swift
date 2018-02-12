@@ -8,5 +8,6 @@
 
 import Foundation
 
-let coinListURL = "https://www.cryptocompare.com/"
-let rootURL = "https://min-api.cryptocompare.com/data/all/coinlist"
+let mediaRoottURL = "https://www.cryptocompare.com"
+let rootURL = "https://min-api.cryptocompare.com/"
+

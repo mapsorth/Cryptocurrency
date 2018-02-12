@@ -16,7 +16,7 @@ public protocol CoinDetailViewModeling{
   var cellModels: Property<[CoinDetailTableViewCellModeling]> { get }
   
   func getCoinDetails()
- // func backAction()
+  func backAction()
   func updateCurrency()
 }
 

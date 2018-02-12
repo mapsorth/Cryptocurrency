@@ -53,6 +53,11 @@ public final class CoinDetailViewModel: CoinDetailViewModeling {
     updateCurrency()
   }
   
+  public func backAction() {
+    timer.invalidate()
+    isRunningTimer = false
+  }
+  
   public func getCoinDetails() {
     coinModeling.getCoinDetails(_coin.value!).start({ event in
       switch event {

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		300B97EE202924CB008FA539 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B97ED202924CB008FA539 /* Config.swift */; };
 		300B97F120293031008FA539 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30437BE82024A4F8005B9989 /* ReactiveCocoa.framework */; };
 		300B97F320293D56008FA539 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B97F220293D56008FA539 /* Coin.swift */; };
 		300B97F5202941BB008FA539 /* CoinModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B97F4202941BB008FA539 /* CoinModeling.swift */; };
@@ -130,9 +129,11 @@
 		304910D4202F8C23005A309F /* cryptocurrencyWatchKit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 304910BA202F8C22005A309F /* cryptocurrencyWatchKit.app */; };
 		304910E4202FFA6E005A309F /* CoinDetailRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304910E3202FFA6E005A309F /* CoinDetailRowController.swift */; };
 		304910F0203000A2005A309F /* SimpleCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304910EE2030009D005A309F /* SimpleCoin.swift */; };
-		304910F420315655005A309F /* WatchCommunicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304910F120315136005A309F /* WatchCommunicationHelper.swift */; };
-		3064AFF8202BBA1600120095 /* CoinTableViewCellModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064AFF7202BBA1600120095 /* CoinTableViewCellModeling.swift */; };
-		3064AFFA202BBA1F00120095 /* CoinTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064AFF9202BBA1F00120095 /* CoinTableViewCellModel.swift */; };
+		304910FA20316F34005A309F /* WatchCommunicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304910F120315136005A309F /* WatchCommunicationHelper.swift */; };
+		305A4517203170A3007E52B1 /* WatchCommunicationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304910F120315136005A309F /* WatchCommunicationHelper.swift */; };
+		305A451B2031710B007E52B1 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300B97ED202924CB008FA539 /* Config.swift */; };
+		305A451D20317126007E52B1 /* CoinTableViewCellModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064AFF7202BBA1600120095 /* CoinTableViewCellModeling.swift */; };
+		305A451E2031712A007E52B1 /* CoinTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064AFF9202BBA1F00120095 /* CoinTableViewCellModel.swift */; };
 		3064B001202DD05900120095 /* CoinTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064AFFF202DD05900120095 /* CoinTableViewCell.swift */; };
 		3064B002202DD05900120095 /* CoinTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3064B000202DD05900120095 /* CoinTableViewCell.xib */; };
 		3064B004202DDAEB00120095 /* CoinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3064B003202DDAEB00120095 /* CoinDetailViewController.swift */; };
@@ -1267,6 +1268,7 @@
 				301AA5252024ED7000B53E15 /* LocalizedString.swift in Sources */,
 				3064B007202DDBA300120095 /* CoinDetail.swift in Sources */,
 				300B97F7202941C6008FA539 /* CoinModel.swift in Sources */,
+				305A451B2031710B007E52B1 /* Config.swift in Sources */,
 				300B97F320293D56008FA539 /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1284,8 +1286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				304910FA20316F34005A309F /* WatchCommunicationHelper.swift in Sources */,
 				30437B5120249A4E005B9989 /* AppDelegate.swift in Sources */,
-				300B97EE202924CB008FA539 /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1302,14 +1304,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				300B97FC202A5365008FA539 /* CoinViewModeling.swift in Sources */,
-				3064AFF8202BBA1600120095 /* CoinTableViewCellModeling.swift in Sources */,
-				304910F420315655005A309F /* WatchCommunicationHelper.swift in Sources */,
+				305A451D20317126007E52B1 /* CoinTableViewCellModeling.swift in Sources */,
 				300B97FA202A5357008FA539 /* CoinViewModel.swift in Sources */,
-				3064AFFA202BBA1F00120095 /* CoinTableViewCellModel.swift in Sources */,
 				3064B00B202DDBC300120095 /* CoinDetailViewModeling.swift in Sources */,
 				3064B009202DDBB500120095 /* CoinDetailViewModel.swift in Sources */,
+				305A451E2031712A007E52B1 /* CoinTableViewCellModel.swift in Sources */,
 				3064B015202E76AB00120095 /* CoinDetailTableViewCellModeling.swift in Sources */,
 				3064B013202E769C00120095 /* CoinDetailTableViewCellModel.swift in Sources */,
+				305A4517203170A3007E52B1 /* WatchCommunicationHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

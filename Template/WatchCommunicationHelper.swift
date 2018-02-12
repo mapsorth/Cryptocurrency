@@ -25,7 +25,7 @@ class WatchCommunicationHelper: NSObject {
     setupWCSession()
     if !isRunningTimer {
       DispatchQueue.main.async {
-        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerFire), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.timerFire), userInfo: nil, repeats: true)
       }
     }
   }
@@ -61,7 +61,7 @@ class WatchCommunicationHelper: NSObject {
       case .value(let coinDetails):
         self.sendToWatch(self.formatCoinToDict(coinDetails))
       default:
-        print("loko")
+        print("default")
       }
     })
   }
