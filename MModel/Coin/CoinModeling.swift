@@ -11,6 +11,7 @@ import ReactiveSwift
 
 public protocol CoinModeling {
 
-  func getList() -> SignalProducer<[Coin], NetworkError>
-
+  func getList() -> SignalProducer<(defaultCoinsInt: Int? ,all:[Coin]?), NetworkError>
+  
+  func getCoinDetails(_ coin: Coin) -> SignalProducer <Coin, NetworkError>
 }

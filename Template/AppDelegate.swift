@@ -20,22 +20,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   let container = Container() { container in
     // Models
     container.register(Networking.self) { _ in Network() }
-    container.register(MModeling.self) { r in
-      MModel(network: r.resolve(Networking.self)!)
-    }
+
     container.register(CoinModeling.self) { r in
       CoinModel(network: r.resolve(Networking.self)!)
     }
     
     // View Models
     container.register(CoinViewModeling.self) { r in
-      CoinViewModel(coinModeling: r.resolve(CoinModeling.self)!)
+      let viewModel = CoinViewModel(coinModeling: r.resolve(CoinModeling.self)!)
+      viewModel.coinDetailModifiable = r.resolve(CoinDetailModifiable.self)!
+      return viewModel
     }
-    
+    container.register(CoinDetailModifiable.self) { r in
+      let viewModel = CoinDetailViewModel(coinModeling: r.resolve(CoinModeling.self)!)
+      return viewModel
+    }.inObjectScope(.container)
+    container.register(CoinDetailViewModeling.self) { r in
+      r.resolve(CoinDetailModifiable.self)!
+    }
     //View
     container.storyboardInitCompleted(MyViewController.self) {
       r, c in
       c.viewModel = r.resolve(CoinViewModeling.self)!
+    }
+    container.storyboardInitCompleted(CoinDetailViewController.self) {
+      r, c in
+      c.viewModel = r.resolve(CoinDetailViewModeling.self)!
     }
   }
 

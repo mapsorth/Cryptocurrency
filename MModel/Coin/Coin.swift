@@ -25,6 +25,8 @@ public struct Coin {
   public let totalCoinsFreeFloar: String
   public let sortOrder: String
   public let sponsored: Bool
+  
+  public var details: [CoinDetail]?
 }
 
 extension Coin : Himotoki.Decodable {
@@ -44,7 +46,8 @@ extension Coin : Himotoki.Decodable {
       preMinedValue: e <| "PreMinedValue",
       totalCoinsFreeFloar: e <| "TotalCoinsFreeFloat",
       sortOrder: e <| "SortOrder",
-      sponsored: e <| "Sponsored"
+      sponsored: e <| "Sponsored",
+      details: nil
     )
   }
 }

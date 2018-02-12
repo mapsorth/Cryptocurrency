@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ppv-1j-2bh">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13507"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="zR6-4P-oPe">
+            <objects>
+                <controller id="ppv-1j-2bh" customClass="InterfaceController" customModule="cryptocurrencyWatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="KPy-pG-JVW">
+                            <items>
+                                <label alignment="center" text="Bitcoin" textAlignment="center" id="132-Bb-I2L"/>
+                                <label alignment="center" text="$ 9999,99" textAlignment="center" id="fTK-CW-qlt">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" height="0.0" alignment="left" id="PQZ-XR-eRt"/>
+                        <table alignment="left" id="pfJ-d8-wfm">
+                            <items>
+                                <tableRow identifier="detailRow" id="Afp-Um-Ils" customClass="CoinDetailRowController" customModule="cryptocurrencyWatchKit_Extension">
+                                    <group key="rootItem" width="1" height="58" alignment="left" layout="vertical" id="na4-AD-o6G">
+                                        <items>
+                                            <label width="1" alignment="left" verticalAlignment="bottom" text="$ 9999,99" textAlignment="right" id="oUm-Ow-Qu6"/>
+                                            <label width="1" alignment="left" text="10/10" textAlignment="left" id="YJJ-D1-6ED"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="currencyLabel" destination="oUm-Ow-Qu6" id="wWd-40-oGX"/>
+                                        <outlet property="dateLabel" destination="YJJ-D1-6ED" id="SDw-Wz-qsU"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="coinCurrentCurrencyLabel" destination="fTK-CW-qlt" id="NuP-wB-hE1"/>
+                        <outlet property="coinNameLabel" destination="132-Bb-I2L" id="kLE-SA-xD2"/>
+                        <outlet property="tableView" destination="pfJ-d8-wfm" id="ZeK-UN-t8a"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="330" y="84"/>
+        </scene>
+    </scenes>
+</document>

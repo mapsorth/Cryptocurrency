@@ -12,9 +12,13 @@ import MModel
 
 public protocol CoinViewModeling{
   
-  var coins: Property<[Coin]> { get }
+  var coins: Property<(defaultCoinsInt: Int? ,all:[Coin]?)> { get }
+  var searchResult: Property<[Coin]?> { get }
+  var cellModels: Property<[CoinTableViewCellModeling]> { get }
+  var bitcoin: Property<[String:AnyObject]> { get }
+
   
-  func getCoins()
-  
+  func getCoins(_ searchString: String?)
+  func navigateToCoinDetail(_ coin: Int)
 }
 
